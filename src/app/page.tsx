@@ -73,11 +73,11 @@ export default function Home() {
               value="1"
               checked
             />
-            <label for="user_active_on">On</label>
+            <label htmlFor="user_active_on">On</label>
           </div>
           <div>
             <input type="radio" id="user_active_off" name="user_active" value="0" />
-            <label for="user_active_off">Off</label>
+            <label htmlFor="user_active_off">Off</label>
           </div>
         </div>
 
