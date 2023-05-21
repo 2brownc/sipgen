@@ -1,95 +1,142 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
+    <form>
+      <div>
+        <h2>Phone Settings</h2>
+      </div>
+      <div id="date et haure">
+        <h3>Date et haure</h3>
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+          <label htmlFor="language">Language</label>
+          <input type="text" id="language" name="language" />
+        </div>
+
+        <div>
+          <label htmlFor="timezone">Timezone</label>
+          <input type="text" id="timezone" name="timezone" />
+        </div>
+
+        <div>
+          <label htmlFor="dst">DST</label>
+          <input type="text" id="dst" name="dst" />
         </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div id="utilisateur">
+        <h3>Utilisateur</h3>
+        <div>
+          <label htmlFor="user_active">User Active:</label>
+          <div>
+            <input
+              type="radio"
+              id="user_active_on"
+              name="user_active"
+              value="1"
+              checked
+            />
+            <label for="user_active_on">On</label>
+          </div>
+          <div>
+            <input type="radio" id="user_active_off" name="user_active" value="0" />
+            <label for="user_active_off">Off</label>
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="user_real_name">User Real Name</label>
+          <input type="text" id="user_real_name" name="user_real_name" />
+        </div>
+
+        <div>
+          <label htmlFor="user_name">User Name</label>
+          <input type="text" id="user_name" name="user_name" />
+        </div>
+
+        <div>
+          <label htmlFor="user_host">Server</label>
+          <input type="text" id="user_host" name="user_host" />
+        </div>
+
+        <div>
+          <label htmlFor="user_outbound">Outbound Server</label>
+          <input type="text" id="user_outbound" name="user_outbound" />
+        </div>
+
+        <div>
+          <label htmlFor="user_pass">Password</label>
+          <input type="password" id="user_pass" name="user_pass" />
+        </div>
+
+        <div>
+          <label htmlFor="user_srtp">SRTP</label>
+          <div>
+            <input
+              type="radio"
+              id="user_srtp_on"
+              name="user_srtp"
+              value="1"
+              checked
+            />
+            <label for="user_srtp_on">On</label>
+          </div>
+          <div>
+            <input type="radio" id="user_srtp_off" name="user_srtp" value="0" />
+            <label for="user_srtp_off">Off</label>
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="user_mailbox">Mailbox</label>
+          <input type="input" id="user_mailbox" name="user_mailbox" />
+        </div>
       </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      <div id="tone">
+        <h3>Tone</h3>
+        <div>
+          <label htmlFor="tone_scheme">Tone Scheme</label>
+          <input type="input" id="tone_scheme" name="tone_scheme" />
+        </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <div>
+          <label htmlFor="provisioning_order">Provisioning Order</label>
+          <input type="input" id="provisioning_order" name="provisioning_order" />
+        </div>
       </div>
-    </main>
-  )
+
+      <div id="codec">
+        <h3>Codec Priority</h3>
+      </div>
+
+      <div id="security_settings">
+        <div>
+          <h3>Security Settings</h3>
+          <h4>
+            For admin mode and Web User Interface
+          </h4>
+        </div>
+
+        <div>
+          <label htmlFor="admin_mode_password">Phone Admin Password</label>
+          <input
+            type="password"
+            id="admin_mode_password"
+            name="admin_mode_password"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="http_user">HTTP User</label>
+          <input type="text" id="http_user" name="http_user" />
+        </div>
+
+        <div>
+          <label htmlFor="http_password">HTTP Password</label>
+          <input type="password" id="http_password" name="http_password" />
+        </div>
+
+      </div>
+
+    </form>
+  );
 }
