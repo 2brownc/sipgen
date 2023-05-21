@@ -1,3 +1,42 @@
+"use client";
+
+import styles from './page.module.css';
+import React, { FC, useState } from "react";
+import { ReactSortable } from "react-sortablejs";
+
+
+interface ItemType {
+  id: number;
+  name: string;
+}
+
+// sortable codec list
+
+const CodecList: FC = (props) => {
+  const [state, setState] = useState<ItemType[]>([
+    { id: 1, name: "G722" },
+    { id: 2, name: "pcmu" },
+    { id: 3, name: "pcma" },
+    { id: 4, name: "gsm" },
+    { id: 5, name: "g723" },
+    { id: 6, name: "g726-32" },
+    { id: 7, name: "aal2-g726-32" },
+    { id: 8, name: "g729" },
+    { id: 9, name: "telephone-event" },
+  ]);
+
+  return (
+    <ReactSortable
+      list={state}
+      setList={setState}
+    >
+      {state.map((item) => (
+        <div className={styles.sortItem} key={item.id}>{item.name}</div>
+      ))}
+    </ReactSortable>
+  );
+};
+
 export default function Home() {
   return (
     <form>
@@ -77,11 +116,11 @@ export default function Home() {
               value="1"
               checked
             />
-            <label for="user_srtp_on">On</label>
+            <label htmlFor="user_srtp_on">On</label>
           </div>
           <div>
             <input type="radio" id="user_srtp_off" name="user_srtp" value="0" />
-            <label for="user_srtp_off">Off</label>
+            <label htmlFor="user_srtp_off">Off</label>
           </div>
         </div>
 
@@ -106,6 +145,14 @@ export default function Home() {
 
       <div id="codec">
         <h3>Codec Priority</h3>
+        <div>
+          <span>
+            Drag and drop to set codec priority. Codes higher in the list will have higher priority.
+          </span>
+        </div>
+        <div className={styles.sortList}>
+          {<CodecList />}
+        </div>
       </div>
 
       <div id="security_settings">
