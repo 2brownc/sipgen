@@ -12,18 +12,8 @@ interface ItemType {
 
 // sortable codec list
 
-const CodecList: FC = (props) => {
-  const [state, setState] = useState<ItemType[]>([
-    { id: 1, name: "G722" },
-    { id: 2, name: "pcmu" },
-    { id: 3, name: "pcma" },
-    { id: 4, name: "gsm" },
-    { id: 5, name: "g723" },
-    { id: 6, name: "g726-32" },
-    { id: 7, name: "aal2-g726-32" },
-    { id: 8, name: "g729" },
-    { id: 9, name: "telephone-event" },
-  ]);
+const SortableList: FC = ({ items }: any) => {
+  const [state, setState] = useState<ItemType[]>(items);
 
   return (
     <ReactSortable
@@ -37,6 +27,23 @@ const CodecList: FC = (props) => {
   );
 };
 
+const codecListItems: ItemType[] = [
+  { id: 1, name: "G722" },
+  { id: 2, name: "pcmu" },
+  { id: 3, name: "pcma" },
+  { id: 4, name: "gsm" },
+  { id: 5, name: "g723" },
+  { id: 6, name: "g726-32" },
+  { id: 7, name: "aal2-g726-32" },
+  { id: 8, name: "g729" },
+  { id: 9, name: "telephone-event" },
+];
+
+const provisioningOrderItems: ItemType[] = [
+  { id: 1, name: "dhcp:stop" },
+  { id: 2, name: "redirection:stop" },
+];
+
 export default function Home() {
   return (
     <>
@@ -47,8 +54,13 @@ export default function Home() {
         <div id="date et haure">
           <h3>Date et haure</h3>
           <div>
-            <label htmlFor="language">Language</label>
-            <input type="text" id="language" name="language" />
+            <label htmlFor="language">Language:</label>
+            <div>
+              <select name="language" id="language">
+                <option value="Français">Français</option>
+                <option value="English">English</option>
+              </select>
+            </div>
           </div>
 
           <div>
@@ -72,12 +84,16 @@ export default function Home() {
                 id="user_active_on"
                 name="user_active"
                 value="1"
-                checked
               />
               <label htmlFor="user_active_on">On</label>
             </div>
             <div>
-              <input type="radio" id="user_active_off" name="user_active" value="0" />
+              <input
+                type="radio"
+                id="user_active_off"
+                name="user_active"
+                value="0"
+              />
               <label htmlFor="user_active_off">Off</label>
             </div>
           </div>
@@ -115,12 +131,16 @@ export default function Home() {
                 id="user_srtp_on"
                 name="user_srtp"
                 value="1"
-                checked
               />
               <label htmlFor="user_srtp_on">On</label>
             </div>
             <div>
-              <input type="radio" id="user_srtp_off" name="user_srtp" value="0" />
+              <input
+                type="radio"
+                id="user_srtp_off"
+                name="user_srtp"
+                value="0"
+              />
               <label htmlFor="user_srtp_off">Off</label>
             </div>
           </div>
@@ -139,20 +159,29 @@ export default function Home() {
           </div>
 
           <div>
-            <label htmlFor="provisioning_order">Provisioning Order</label>
-            <input type="input" id="provisioning_order" name="provisioning_order" />
+            <div style={{
+              marginTop: "20px",
+            }}>
+              Provisioning Order:
+            </div>
+            <div className={styles.helperText}>
+              Click and drag to set priority. Items higher on the list have higher priority.
+            </div>
+            {/*<label htmlFor="provisioning_order">Provisioning Order</label>
+            <input type="input" id="provisioning_order" name="provisioning_order" />*/}
+            <div className={styles.sortList}>
+              {<SortableList items={provisioningOrderItems} />}
+            </div>
           </div>
         </div>
 
         <div id="codec">
           <h3>Codec Priority</h3>
-          <div>
-            <span>
-              Drag and drop to set codec priority. Codes higher in the list will have higher priority.
-            </span>
+          <div className={styles.helperText}>
+            Click and drag to set codec priority. Codes higher in the list will have higher priority.
           </div>
           <div className={styles.sortList}>
-            {<CodecList />}
+            {<SortableList items={codecListItems} />}
           </div>
         </div>
 
@@ -182,7 +211,22 @@ export default function Home() {
             <label htmlFor="http_password">HTTP Password</label>
             <input type="password" id="http_password" name="http_password" />
           </div>
+        </div>
 
+        <div id="design_et_background">
+          <h3>Design et Background</h3>
+
+          <div>
+            <div>
+              <label htmlFor="ui_theme">UI Theme</label>
+              <div>
+                <select name="ui_theme" id="ui_theme">
+                  <option value="industrial">Industrial</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
         </div>
 
         <div>
