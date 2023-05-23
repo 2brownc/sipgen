@@ -1,31 +1,16 @@
 "use client";
 
 import styles from './page.module.css';
-import React, { FC, useState } from "react";
-import { ReactSortable } from "react-sortablejs";
+import React, { useState } from "react";
 
 
 interface ItemType {
   id: number;
   name: string;
+  filtered?: boolean;
 }
 
 // sortable codec list
-
-const SortableList: FC = ({ items }: any) => {
-  const [state, setState] = useState<ItemType[]>(items);
-
-  return (
-    <ReactSortable
-      list={state}
-      setList={setState}
-    >
-      {state.map((item) => (
-        <div className={styles.sortItem} key={item.id}>{item.name}</div>
-      ))}
-    </ReactSortable>
-  );
-};
 
 const codecListItems: ItemType[] = [
   { id: 1, name: "G722" },
@@ -37,6 +22,8 @@ const codecListItems: ItemType[] = [
   { id: 7, name: "aal2-g726-32" },
   { id: 8, name: "g729" },
   { id: 9, name: "telephone-event" },
+  { id: 10, filtered: true, name: "Ignore Below Items" },
+
 ];
 
 const provisioningOrderItems: ItemType[] = [
