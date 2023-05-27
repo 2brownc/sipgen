@@ -1,8 +1,9 @@
 "use client";
 
-import styles from './page.module.css';
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
+import { ReactSortable } from "react-sortablejs";
 
+import styles from './page.module.css';
 
 interface ItemType {
   id: number;
@@ -10,10 +11,73 @@ interface ItemType {
   filtered?: boolean;
 }
 
-// sortable codec list
+const SL: FC = (props) => {
+  const [state, setState] = useState<ItemType[]>([
+    { id: 1, name: "shrek" },
+    { id: 2, name: "fiona" },
+    { id: 3, name: "puss", filtered: true },
+  ]);
 
-const codecListItems: ItemType[] = [
-  { id: 1, name: "G722" },
+  return (
+    <ReactSortable
+      list={state}
+      setList={setState}
+      filter={".static"}
+    >
+      {state.map((item) => (
+        <div key={item.id}
+          className={
+            `
+            ${item.filtered ? styles.sortItemFilter : styles.sortItem}
+            `
+          }
+        >
+          {item.name}
+        </div>
+      ))
+      }
+    </ReactSortable >
+  );
+};
+
+
+type SortableListProps = {
+  list: ItemType[]
+}
+
+const SortableList: FC<SortableListProps> = ({ list }) => {
+  const [state, setState] = useState<ItemType[]>(list);
+
+  return (
+    <ReactSortable
+      list={state}
+      setList={setState}
+      filter={".static"}
+    >
+      {state.map((item) => (
+        <div key={item.id}
+          className={
+            `
+            ${item.filtered ? styles.sortItemFilter : styles.sortItem}
+            `
+          }
+        >
+          {item.name}
+        </div>
+      ))
+      }
+    </ReactSortable >
+  );
+};
+
+// sortable codec list
+const provisioningOrderItems: ItemType[] = [
+  { id: 1, name: "dhcp:stop" },
+  { id: 2, name: "redirection:stop" },
+];
+
+const codecList: ItemType[] = [
+  { id: 1, name: "g722" },
   { id: 2, name: "pcmu" },
   { id: 3, name: "pcma" },
   { id: 4, name: "gsm" },
@@ -22,14 +86,9 @@ const codecListItems: ItemType[] = [
   { id: 7, name: "aal2-g726-32" },
   { id: 8, name: "g729" },
   { id: 9, name: "telephone-event" },
-  { id: 10, filtered: true, name: "Ignore Below Items" },
-
+  { id: 100, name: "Codecs below will be ignored", filtered: true },
 ];
 
-const provisioningOrderItems: ItemType[] = [
-  { id: 1, name: "dhcp:stop" },
-  { id: 2, name: "redirection:stop" },
-];
 
 export default function Home() {
   return (
@@ -157,7 +216,7 @@ export default function Home() {
             {/*<label htmlFor="provisioning_order">Provisioning Order</label>
             <input type="input" id="provisioning_order" name="provisioning_order" />*/}
             <div className={styles.sortList}>
-              {<SortableList items={provisioningOrderItems} />}
+              <SortableList list={provisioningOrderItems} />
             </div>
           </div>
         </div>
@@ -168,7 +227,7 @@ export default function Home() {
             Click and drag to set codec priority. Codes higher in the list will have higher priority.
           </div>
           <div className={styles.sortList}>
-            {<SortableList items={codecListItems} />}
+            <SortableList list={codecList} />
           </div>
         </div>
 
