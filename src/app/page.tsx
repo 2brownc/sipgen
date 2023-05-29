@@ -228,7 +228,7 @@ export default function Home() {
       <div id="codec">
         <h3>Codec Priority</h3>
         <div className={styles.helperText}>
-          Click and drag to set codec priority. Codes higher in the list will have higher priority. Codec below "Ignore Bar" will be ignored.
+          Click and drag to set codec priority. Codces higher in the list will have higher priority. Codecs below "Ignore Bar" will be ignored.
         </div>
         <div className={styles.sortList}>
           <SortableList
