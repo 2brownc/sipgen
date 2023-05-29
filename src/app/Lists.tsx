@@ -16,7 +16,7 @@ const codecItems: ItemType[] = [
   { id: "7", name: "aal2-g726-32" },
   { id: "8", name: "g729" },
   { id: "9", name: "telephone-event" },
-  { id: "0", name: "Codecs below will be ignored", filtered: true },
+  { id: "0", name: "Ignore Bar: Codecs below will be ignored.", filtered: true },
 ];
 
 interface ItemType {
@@ -28,7 +28,6 @@ interface ItemType {
 const getItems = (itemList: ItemType[]) => {
   const items: string[] = [];
   for (const item of itemList) {
-    console.log("ITEM", item)
     if (item.id === "0") break;
 
     items.push(item.name);
