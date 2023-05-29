@@ -8,6 +8,8 @@ import React, {
 
 import axios from 'axios';
 
+import { saveAs } from 'file-saver';
+
 import styles from './page.module.css';
 
 import {
@@ -20,14 +22,17 @@ import SortableList from './SortableList';
 
 import { Settings } from './Settings';
 
+import { generateXML } from "@/utils/GenerateXML";
+
 export default function Home() {
 
   const [status, setStatus] = useState<string>("waiting");
   const [codecListOrder, setCodecListOrder] = useState<any>([]);
   const [provisioningListOrder, setProvisioningListOrder] = useState<any>([]);
+  /*
   const [sendData, setSendData] = useState<boolean>(false);
-
-  let settings: Settings;
+  const [settings, setSettings] = useState<Settings>(null);
+  */
 
   const langRef = useRef<any>(null);
   const timeZoneRef = useRef<any>(null);
@@ -75,7 +80,7 @@ export default function Home() {
 
 
 
-    settings = {
+    const phoneSettings: Settings = {
       phoneSettings: {
         language: langRef.current?.value,
         timezone: timeZoneRef.current.value,
@@ -85,56 +90,71 @@ export default function Home() {
         userName: userNameRef.current.value,
         userHost: userHostRef.current.value,
         userOutbound: userOutboundRef.current.value,
+        userPass: userPassRef.current.value,
         userSRTP: userSRTPOnRef.current.checked || false,
         userMailbox: userMailboxRef.current.value,
         toneScheme: toneSchemeRef.current.value,
-        provisioningOrder: getItems(provisioningOrderItems),
-        codecPriorityList: getItems(codecItems),
-        adminModePassword: adminModePassRef.current.value,
+        provisioningOrder: getItems(provisioningListOrder),
+        codecPriorityList: getItems(codecListOrder),
+        adminModePass: adminModePassRef.current.value,
         httpUser: httpUserRef.current.value,
-        httpsPass: httpPassRef.current.value,
+        httpPass: httpPassRef.current.value,
         uiTheme: uiThemeRef.current.value
       }
     };
 
-    setSendData(true);
+    let blob = new Blob(
+      [generateXML(phoneSettings)],
+      { type: "application/xml" }
+    );
+
+    saveAs(blob, "phoneSettings.xml");
+
+
+    /*
+      setSettings(phoneSettings);
+  
+      setSendData(true);
+    */
   };
-
-  const statusInfoText = (text: string): string => {
-    let label = "";
-    if (text === "waiting")
-      label = "";
-    if (text === "failure")
-      label = "File generation filed. Click to try again."
-    if (text === "success")
-      label = "File successfully generated! Chcek your downloads."
-    return label;
-  };
-
-
-  useEffect(() => {
-    if (sendData) {
-      setSendData(false);
-      const payload = {
-        name: "phone settings",
-        message: settings
-      };
-
-      axios.post(
-        './api/generatesettingsfile',
-        payload,
-        {
-          headers: { 'Content-Type': 'application/json' }
-        }
-      ).then(() => {
-        setStatus('success');
-      }).catch(() => {
-        setStatus('failure')
-      });
-    }
-  }, [sendData]);
-
-
+  /*
+    const statusInfoText = (text: string): string => {
+      let label = "";
+      if (text === "waiting")
+        label = "";
+      if (text === "failure")
+        label = "File generation filed. Click to try again."
+      if (text === "success")
+        label = "File successfully generated! Chcek your downloads."
+      return label;
+    };
+  
+  
+    useEffect(() => {
+      if (sendData) {
+        console.log("inside useEffect", settings);
+        setSendData(false);
+        const payload = {
+          name: "phone settings",
+          message: settings
+        };
+  
+        axios.post(
+          './api/generatesettingsfile',
+          payload,
+          {
+            headers: { 'Content-Type': 'application/json' }
+          }
+        ).then((response) => {
+          setStatus('success');
+          FileSaver.saveAs()
+        }).catch(() => {
+          setStatus('failure')
+        });
+      }
+    }, [sendData, settings]);
+  
+    */
 
   return (
     <>
@@ -357,8 +377,6 @@ export default function Home() {
           >
             Download XML File
           </button>
-
-          <div>{statusInfoText(status)}</div>
         </div>
 
       </form>

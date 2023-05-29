@@ -8,14 +8,15 @@ interface Settings {
     userName: string | null,
     userHost: string | null,
     userOutbound: string | null,
+    userPass: string | null,
     userSRTP: boolean | null,
     userMailbox: string | null,
     toneScheme: string | null,
     provisioningOrder: string[] | null,
     codecPriorityList: string[] | null,
-    adminModePassword: string | null,
+    adminModePass: string | null,
     httpUser: string | null,
-    httpsPass: string | null,
+    httpPass: string | null,
     uiTheme: string | null;
   }
 };

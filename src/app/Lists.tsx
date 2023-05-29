@@ -28,6 +28,7 @@ interface ItemType {
 const getItems = (itemList: ItemType[]) => {
   const items: string[] = [];
   for (const item of itemList) {
+    console.log("ITEM", item)
     if (item.id === "0") break;
 
     items.push(item.name);
