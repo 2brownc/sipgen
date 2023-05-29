@@ -68,7 +68,7 @@ function generateXML(settings: Settings) {
     <user_host idx="1" perm="RW">${userHost}</user_host>
 	<user_outbound idx="1" perm="">${userOutbound}</user_outbound>
  	<user_pass idx="1" perm="">${userPass}</user_pass>
-	<user_srtp idx="1" perm="">${userSRTP}</user_srtp>
+	<user_srtp idx="1" perm="">${userSRTP ? 'on' : 'off'}</user_srtp>
 	<user_mailbox idx="1" perm="">${userMailbox}</user_mailbox>
 	
 	<!-- Tone -->
