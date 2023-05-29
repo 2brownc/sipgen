@@ -74,7 +74,7 @@ export default function Home() {
       { type: "application/xml" }
     );
 
-    saveAs(blob, "phoneSettings.xml");
+    saveAs(blob, "snomD735-000413BCD359.htm");
   }
 
   return (
