@@ -21,6 +21,12 @@ function generateXML(settings: Settings) {
       httpUser,
       httpPass,
       uiTheme,
+      fkey0,
+      fkey1,
+      fkey2,
+      fkey3,
+      fkey4,
+      fkey5,
     }
   } = settings;
 
@@ -91,12 +97,12 @@ function generateXML(settings: Settings) {
 	
   </phone-settings>
   <functionKeys e="2">
-<fkey idx="0" context="active" short_label_mode="icon_text" short_label="" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">line</fkey>
-<fkey idx="1" context="active" short_label_mode="icon_text" short_label="" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">line</fkey>
-<fkey idx="2" context="active" short_label_mode="icon_text" short_label="Park 1" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="Park 1" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">blf &lt;sip:701@${userHost};user=phone&gt;</fkey>
-<fkey idx="3" context="active" short_label_mode="icon_text" short_label="Park 2" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="Park 2" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">blf &lt;sip:702@${userHost};user=phone&gt;</fkey>
-<fkey idx="4" context="active" short_label_mode="icon_text" short_label="Park 2" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="Park 3" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">blf &lt;sip:703@${userHost};user=phone&gt;</fkey>
-<fkey idx="5" context="active" short_label_mode="icon_text" short_label="Park 2" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="Park 4" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">blf &lt;sip:704@${userHost};user=phone&gt;</fkey>
+<fkey idx="0" context="active" short_label_mode="icon_text" short_label="" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">${fkey0}</fkey>
+<fkey idx="1" context="active" short_label_mode="icon_text" short_label="" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">${fkey1}</fkey>
+<fkey idx="2" context="active" short_label_mode="icon_text" short_label="Park 1" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="Park 1" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">${fkey2}</fkey>
+<fkey idx="3" context="active" short_label_mode="icon_text" short_label="Park 2" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="Park 2" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">${fkey3}</fkey>
+<fkey idx="4" context="active" short_label_mode="icon_text" short_label="Park 2" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="Park 3" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">${fkey4}</fkey>
+<fkey idx="5" context="active" short_label_mode="icon_text" short_label="Park 2" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="Park 4" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">${fkey5}</fkey>
   </functionKeys>
   <firmware-settings e="2">
 <firmware perm=""></firmware>
