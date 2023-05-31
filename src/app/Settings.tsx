@@ -17,7 +17,13 @@ interface Settings {
     adminModePass: string | null,
     httpUser: string | null,
     httpPass: string | null,
-    uiTheme: string | null;
+    uiTheme: string | null,
+    fkey0: string | null,
+    fkey1: string | null,
+    fkey2: string | null,
+    fkey3: string | null,
+    fkey4: string | null,
+    fkey5: string | null,
   }
 };
 

@@ -44,6 +44,12 @@ export default function Home() {
   const httpUserRef = useRef<any>(null);
   const httpPassRef = useRef<any>(null);
   const uiThemeRef = useRef<any>(null);
+  const fkey0Ref = useRef<any>(null);
+  const fkey1Ref = useRef<any>(null);
+  const fkey2Ref = useRef<any>(null);
+  const fkey3Ref = useRef<any>(null);
+  const fkey4Ref = useRef<any>(null);
+  const fkey5Ref = useRef<any>(null);
 
   const getFormData = () => {
     const phoneSettings: Settings = {
@@ -65,6 +71,12 @@ export default function Home() {
         adminModePass: adminModePassRef.current.value,
         httpUser: httpUserRef.current.value,
         httpPass: httpPassRef.current.value,
+        fkey0: fkey0Ref.current.value,
+        fkey1: fkey1Ref.current.value,
+        fkey2: fkey2Ref.current.value,
+        fkey3: fkey3Ref.current.value,
+        fkey4: fkey4Ref.current.value,
+        fkey5: fkey5Ref.current.value,
         uiTheme: uiThemeRef.current.value
       }
     };
@@ -284,6 +296,54 @@ export default function Home() {
             </div>
           </div>
 
+        </div>
+      </div>
+
+      <div id="functionKeys">
+        <div>
+          <h2>Function Keys</h2>
+        </div>
+
+        <div>
+          <label htmlFor="fkey0">Function Key 0</label>
+          <input type="text" id="fkey0" name="fkey0"
+            ref={fkey0Ref}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="fkey1">Function Key 1</label>
+          <input type="text" id="fkey1" name="fkey1"
+            ref={fkey1Ref}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="fkey2">Function Key 2 (Park 1)</label>
+          <input type="text" id="fkey2" name="fkey2"
+            ref={fkey2Ref}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="fkey3">Function Key 3 (Park 2)</label>
+          <input type="text" id="fkey3" name="fkey3"
+            ref={fkey3Ref}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="fkey4">Function Key 4 (Park 2)</label>
+          <input type="text" id="fkey4" name="fkey4"
+            ref={fkey4Ref}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="fkey4">Function Key 5(Park 2)</label>
+          <input type="text" id="fkey5" name="fkey5"
+            ref={fkey5Ref}
+          />
         </div>
       </div>
 
