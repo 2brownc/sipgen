@@ -349,7 +349,7 @@ export default function Home() {
               <input type="text" placeholder="context" ref={fk0ContextRef} />
             </span>
             <span>
-              <input type="text" placeholder="type" ref={fk0TypeRef} readonly value="line" />
+              <input type="text" placeholder="type" ref={fk0TypeRef} readOnly value="line" />
             </span>
 
             <span>Number</span>
@@ -372,7 +372,7 @@ export default function Home() {
               <input type="text" placeholder="context" ref={fk1ContextRef} />
             </span>
             <span>
-              <input type="text" placeholder="type" ref={fk1TypeRef} readonly value="line" />
+              <input type="text" placeholder="type" ref={fk1TypeRef} readOnly value="line" />
             </span>
 
             <span>Number</span>
@@ -395,7 +395,7 @@ export default function Home() {
               <input type="text" placeholder="context" ref={fk2ContextRef} />
             </span>
             <span>
-              <input type="text" placeholder="type" ref={fk2TypeRef} readonly value="blf" />
+              <input type="text" placeholder="type" ref={fk2TypeRef} readOnly value="blf" />
             </span>
 
             <span>Number</span>
@@ -418,7 +418,7 @@ export default function Home() {
               <input type="text" placeholder="context" ref={fk3ContextRef} />
             </span>
             <span>
-              <input type="text" placeholder="type" ref={fk3TypeRef}  readonly value="blf" />
+              <input type="text" placeholder="type" ref={fk3TypeRef} readOnly value="blf" />
             </span>
 
             <span>Number</span>
@@ -441,7 +441,7 @@ export default function Home() {
               <input type="text" placeholder="context" ref={fk4ContextRef} />
             </span>
             <span>
-              <input type="text" placeholder="type" ref={fk4TypeRef}  readonly value="blf" />
+              <input type="text" placeholder="type" ref={fk4TypeRef} readOnly value="blf" />
             </span>
 
             <span>Number</span>
@@ -464,7 +464,7 @@ export default function Home() {
               <input type="text" placeholder="context" ref={fk5ContextRef} />
             </span>
             <span>
-              <input type="text" placeholder="type" ref={fk5TypeRef}  readonly value="blf" />
+              <input type="text" placeholder="type" ref={fk5TypeRef} readOnly value="blf" />
             </span>
 
             <span>Number</span>
