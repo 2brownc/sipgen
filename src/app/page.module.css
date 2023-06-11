@@ -38,3 +38,26 @@
   font-size: smaller;
   color: gray;
 }
+
+.functionKeyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.3em 0.6em;
+}
+
+.functionKeyGrid span * {
+  width: auto;
+  margin: 0;
+}
+
+.functionKeyBox h3 {
+  margin: 0 0 1rem 0;
+  width: auto;
+  box-shadow: 0 2px 1px -1px gray;
+}
+
+.functionKeyBox {
+  margin-bottom: 0.5rem;
+  /*background-color: #f8f8ff;*/
+  padding: 1rem;
+}

@@ -44,12 +44,30 @@ export default function Home() {
   const httpUserRef = useRef<any>(null);
   const httpPassRef = useRef<any>(null);
   const uiThemeRef = useRef<any>(null);
-  const fkey0Ref = useRef<any>(null);
-  const fkey1Ref = useRef<any>(null);
-  const fkey2Ref = useRef<any>(null);
-  const fkey3Ref = useRef<any>(null);
-  const fkey4Ref = useRef<any>(null);
-  const fkey5Ref = useRef<any>(null);
+  const fk0ContextRef = useRef<any>(null);
+  const fk0TypeRef = useRef<any>(null);
+  const fk0NumberRef = useRef<any>(null);
+  const fk0LabelRef = useRef<any>(null);
+  const fk1ContextRef = useRef<any>(null);
+  const fk1TypeRef = useRef<any>(null);
+  const fk1NumberRef = useRef<any>(null);
+  const fk1LabelRef = useRef<any>(null);
+  const fk2ContextRef = useRef<any>(null);
+  const fk2TypeRef = useRef<any>(null);
+  const fk2NumberRef = useRef<any>(null);
+  const fk2LabelRef = useRef<any>(null);
+  const fk3ContextRef = useRef<any>(null);
+  const fk3TypeRef = useRef<any>(null);
+  const fk3NumberRef = useRef<any>(null);
+  const fk3LabelRef = useRef<any>(null);
+  const fk4ContextRef = useRef<any>(null);
+  const fk4TypeRef = useRef<any>(null);
+  const fk4NumberRef = useRef<any>(null);
+  const fk4LabelRef = useRef<any>(null);
+  const fk5ContextRef = useRef<any>(null);
+  const fk5TypeRef = useRef<any>(null);
+  const fk5NumberRef = useRef<any>(null);
+  const fk5LabelRef = useRef<any>(null);
 
   const getFormData = () => {
     const phoneSettings: Settings = {
@@ -71,12 +89,30 @@ export default function Home() {
         adminModePass: adminModePassRef.current.value,
         httpUser: httpUserRef.current.value,
         httpPass: httpPassRef.current.value,
-        fkey0: fkey0Ref.current.value,
-        fkey1: fkey1Ref.current.value,
-        fkey2: fkey2Ref.current.value,
-        fkey3: fkey3Ref.current.value,
-        fkey4: fkey4Ref.current.value,
-        fkey5: fkey5Ref.current.value,
+        fk0Context: fk0ContextRef.current.value,
+        fk0Label: fk0LabelRef.current.value,
+        fk0Number: fk0NumberRef.current.value,
+        fk0Type: fk0TypeRef.current.value,
+        fk1Context: fk1ContextRef.current.value,
+        fk1Label: fk1LabelRef.current.value,
+        fk1Number: fk1NumberRef.current.value,
+        fk1Type: fk1TypeRef.current.value,
+        fk2Context: fk2ContextRef.current.value,
+        fk2Label: fk2LabelRef.current.value,
+        fk2Number: fk2NumberRef.current.value,
+        fk2Type: fk2TypeRef.current.value,
+        fk3Context: fk3ContextRef.current.value,
+        fk3Label: fk3LabelRef.current.value,
+        fk3Number: fk3NumberRef.current.value,
+        fk3Type: fk3TypeRef.current.value,
+        fk4Context: fk4ContextRef.current.value,
+        fk4Label: fk4LabelRef.current.value,
+        fk4Number: fk4NumberRef.current.value,
+        fk4Type: fk4TypeRef.current.value,
+        fk5Context: fk5ContextRef.current.value,
+        fk5Label: fk5LabelRef.current.value,
+        fk5Number: fk5NumberRef.current.value,
+        fk5Type: fk5TypeRef.current.value,
         uiTheme: uiThemeRef.current.value
       }
     };
@@ -304,47 +340,144 @@ export default function Home() {
           <h2>Function Keys</h2>
         </div>
 
-        <div>
-          <label htmlFor="fkey0">Function Key 0</label>
-          <input type="text" id="fkey0" name="fkey0"
-            ref={fkey0Ref}
-          />
+        <div className={styles.functionKeyBox}>
+          <h3>P1 Key</h3>
+          <div className={styles.functionKeyGrid}>
+            <span>Context</span>
+            <span>Type</span>
+            <span>
+              <input type="text" placeholder="context" ref={fk0ContextRef} />
+            </span>
+            <span>
+              <input type="text" placeholder="type" ref={fk0TypeRef} readonly value="line" />
+            </span>
+
+            <span>Number</span>
+            <span>Label</span>
+            <span>
+              <input type="text" placeholder="number" ref={fk0NumberRef} />
+            </span>
+            <span>
+              <input type="text" placeholder="label" ref={fk0LabelRef} />
+            </span>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="fkey1">Function Key 1</label>
-          <input type="text" id="fkey1" name="fkey1"
-            ref={fkey1Ref}
-          />
+        <div className={styles.functionKeyBox}>
+          <h3>P2 Key</h3>
+          <div className={styles.functionKeyGrid}>
+            <span>Context</span>
+            <span>Type</span>
+            <span>
+              <input type="text" placeholder="context" ref={fk1ContextRef} />
+            </span>
+            <span>
+              <input type="text" placeholder="type" ref={fk1TypeRef} readonly value="line" />
+            </span>
+
+            <span>Number</span>
+            <span>Label</span>
+            <span>
+              <input type="text" placeholder="number" ref={fk1NumberRef} />
+            </span>
+            <span>
+              <input type="text" placeholder="label" ref={fk1LabelRef} />
+            </span>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="fkey2">Function Key 2 (Park 1)</label>
-          <input type="text" id="fkey2" name="fkey2"
-            ref={fkey2Ref}
-          />
+        <div className={styles.functionKeyBox}>
+          <h3>P3 Key</h3>
+          <div className={styles.functionKeyGrid}>
+            <span>Context</span>
+            <span>Type</span>
+            <span>
+              <input type="text" placeholder="context" ref={fk2ContextRef} />
+            </span>
+            <span>
+              <input type="text" placeholder="type" ref={fk2TypeRef} readonly value="blf" />
+            </span>
+
+            <span>Number</span>
+            <span>Label</span>
+            <span>
+              <input type="text" placeholder="number" ref={fk2NumberRef} />
+            </span>
+            <span>
+              <input type="text" placeholder="label" ref={fk2LabelRef} />
+            </span>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="fkey3">Function Key 3 (Park 2)</label>
-          <input type="text" id="fkey3" name="fkey3"
-            ref={fkey3Ref}
-          />
+        <div className={styles.functionKeyBox}>
+          <h3>P4 Key</h3>
+          <div className={styles.functionKeyGrid}>
+            <span>Context</span>
+            <span>Type</span>
+            <span>
+              <input type="text" placeholder="context" ref={fk3ContextRef} />
+            </span>
+            <span>
+              <input type="text" placeholder="type" ref={fk3TypeRef}  readonly value="blf" />
+            </span>
+
+            <span>Number</span>
+            <span>Label</span>
+            <span>
+              <input type="text" placeholder="number" ref={fk3NumberRef} />
+            </span>
+            <span>
+              <input type="text" placeholder="label" ref={fk3LabelRef} />
+            </span>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="fkey4">Function Key 4 (Park 2)</label>
-          <input type="text" id="fkey4" name="fkey4"
-            ref={fkey4Ref}
-          />
+        <div className={styles.functionKeyBox}>
+          <h3>P5 Key</h3>
+          <div className={styles.functionKeyGrid}>
+            <span>Context</span>
+            <span>Type</span>
+            <span>
+              <input type="text" placeholder="context" ref={fk4ContextRef} />
+            </span>
+            <span>
+              <input type="text" placeholder="type" ref={fk4TypeRef}  readonly value="blf" />
+            </span>
+
+            <span>Number</span>
+            <span>Label</span>
+            <span>
+              <input type="text" placeholder="number" ref={fk4NumberRef} />
+            </span>
+            <span>
+              <input type="text" placeholder="label" ref={fk4LabelRef} />
+            </span>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="fkey4">Function Key 5(Park 2)</label>
-          <input type="text" id="fkey5" name="fkey5"
-            ref={fkey5Ref}
-          />
+        <div className={styles.functionKeyBox}>
+          <h3>P6 Key</h3>
+          <div className={styles.functionKeyGrid}>
+            <span>Context</span>
+            <span>Type</span>
+            <span>
+              <input type="text" placeholder="context" ref={fk5ContextRef} />
+            </span>
+            <span>
+              <input type="text" placeholder="type" ref={fk5TypeRef}  readonly value="blf" />
+            </span>
+
+            <span>Number</span>
+            <span>Label</span>
+            <span>
+              <input type="text" placeholder="number" ref={fk5NumberRef} />
+            </span>
+            <span>
+              <input type="text" placeholder="label" ref={fk5LabelRef} />
+            </span>
+          </div>
         </div>
+
       </div>
 
       <div>
