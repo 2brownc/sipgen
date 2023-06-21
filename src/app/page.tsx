@@ -92,7 +92,7 @@ export default function Home() {
   const [provisioningListOrder, setProvisioningListOrder] = useState<any>([]);
 
 
-  const getFormData = event => {
+  const getFormData = (event: any) => {
     event.preventDefault();
 
     const phoneSettings: any = {
