@@ -19,6 +19,31 @@ const codecItems: ItemType[] = [
   { id: "0", name: "Ignore Bar: Codecs below will be ignored.", filtered: true },
 ];
 
+// EDIT FUNCTION KEY TYPES HERE
+const functionKeyTypes: string[] = [
+  'line',
+  'dest',
+  'icom',
+  'orbit',
+  'recorder',
+  'dtmf',
+  'mult',
+  'multicast',
+  'p2t',
+  'url',
+  'keyevent',
+  'speed',
+  'button',
+  'blf',
+  'ivr',
+  'presence',
+  'transfer',
+  'redirect',
+  'autoanswer',
+  'conference',
+  'smart_transfer'
+];
+
 interface ItemType {
   id: string;
   name: string;
@@ -39,7 +64,8 @@ const getItems = (itemList: ItemType[]) => {
 export {
   provisioningOrderItems,
   codecItems,
-  getItems
+  getItems,
+  functionKeyTypes,
 }
 
 export type { ItemType };

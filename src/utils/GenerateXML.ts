@@ -1,51 +1,23 @@
-import { Settings } from '../app/Settings';
-
-function generateXML(settings: Settings) {
+function generateXML(settings: any) {
   const {
-    phoneSettings: {
-      language,
-      timezone,
-      dst,
-      userActive,
-      userRealName,
-      userName,
-      userHost,
-      userOutbound,
-      userPass,
-      userSRTP,
-      userMailbox,
-      toneScheme,
-      provisioningOrder,
-      codecPriorityList,
-      adminModePass,
-      httpUser,
-      httpPass,
-      uiTheme,
-      fk0Context,
-      fk0Type,
-      fk0Label,
-      fk0Number,
-      fk1Context,
-      fk1Type,
-      fk1Label,
-      fk1Number,
-      fk2Context,
-      fk2Type,
-      fk2Label,
-      fk2Number,
-      fk3Context,
-      fk3Type,
-      fk3Label,
-      fk3Number,
-      fk4Context,
-      fk4Type,
-      fk4Label,
-      fk4Number,
-      fk5Context,
-      fk5Type,
-      fk5Label,
-      fk5Number,
-    }
+    language,
+    timezone,
+    dst,
+    userActive,
+    userRealName,
+    userName,
+    userHost,
+    userOutbound,
+    userPass,
+    userSRTP,
+    userMailbox,
+    toneScheme,
+    provisioningOrder,
+    codecPriorityList,
+    adminModePass,
+    httpUser,
+    httpPass,
+    uiTheme,
   } = settings;
 
   const generateCodecPriorityList = (list: string[] | null) => {
@@ -74,6 +46,36 @@ function generateXML(settings: Settings) {
 
     return xml;
   }
+
+  const generateFKeys = (settings: any) => {
+    let fkeyXML = "";
+
+    const keys = Object.keys(settings);
+
+    for (let i = 0; ; i++) {
+      const context = `fkey${i}Context`;
+      const type = `fkey${i}Type`;
+      const value = `fkey${i}Value`;
+      const label = `fkey${i}Label`;
+
+      if (
+        keys.includes(context) &&
+        keys.includes(type) &&
+        keys.includes(value) &&
+        keys.includes(label)
+      ) {
+        if (settings[type] === '') continue;
+
+        fkeyXML += `<fkey idx="${i}" context="${settings[context]}" label="${settings[label]}">${settings[type]}${settings[type] === 'line' ? '' : ` ${settings[value]}`}</fkey>`;
+        fkeyXML += '\n';
+      } else {
+        break;
+      }
+    }
+
+    return fkeyXML;
+
+  };
 
   const XML: string = `
 
@@ -114,20 +116,15 @@ function generateXML(settings: Settings) {
 	
 	
   </phone-settings>
-  <functionKeys e="2">
-<fkey idx="0" context="${fk0Context}" short_label_mode="icon_text" short_label="" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="${fk0Label}" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">${fk0Type}</fkey>
-<fkey idx="1" context="${fk1Context}" short_label_mode="icon_text" short_label="" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="${fk1Label}" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">${fk1Type}</fkey>
-<fkey idx="2" context="${fk2Context}" short_label_mode="icon_text" short_label="Park 1" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="${fk2Label}" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">${fk2Number}</fkey>
-<fkey idx="3" context="${fk3Context}" short_label_mode="icon_text" short_label="Park 2" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="${fk3Label}" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">${fk3Number}</fkey>
-<fkey idx="4" context="${fk4Context}" short_label_mode="icon_text" short_label="Park 2" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="${fk4Label}" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">${fk4Number}</fkey>
-<fkey idx="5" context="${fk5Context}" short_label_mode="icon_text" short_label="Park 2" short_default_text="!!$(::)!!$(generate_via_conditional_label_short)" label_mode="icon_text" icon_type="" reg_label_mode="icon_text" label="${fk5Label}" lp="on" default_text="!!$(::)!!$(generate_via_conditional_label_full)" perm="">${fk5Number}</fkey>
+  <functionKeys>
   </functionKeys>
   <firmware-settings e="2">
 <firmware perm=""></firmware>
 <firmware_uxm perm=""></firmware_uxm>
 </firmware-settings>
-<functionKeys e="2">
-  </functionKeys>
+<functionKeys>
+  ${generateFKeys(settings)}
+</functionKeys>
 <tbook e='2'/><dialplan e="2">
 </dialplan>
 </settings>  
