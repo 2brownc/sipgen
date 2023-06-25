@@ -116,17 +116,20 @@ function generateXML(settings: any) {
 	
 	
   </phone-settings>
-  <functionKeys>
+  
+  <functionKeys e="2">
+    ${generateFKeys(settings)}
   </functionKeys>
+  
   <firmware-settings e="2">
-<firmware perm=""></firmware>
-<firmware_uxm perm=""></firmware_uxm>
-</firmware-settings>
-<functionKeys>
-  ${generateFKeys(settings)}
-</functionKeys>
-<tbook e='2'/><dialplan e="2">
-</dialplan>
+    <firmware perm=""></firmware>
+    <firmware_uxm perm=""></firmware_uxm>
+  </firmware-settings>
+  
+  <tbook e='2'/>
+  
+  <dialplan e="2">
+  </dialplan>
 </settings>  
   `;
   return XML;

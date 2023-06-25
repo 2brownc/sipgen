@@ -26,7 +26,7 @@ function generateFunctionKeys(limit: number) {
   for (let i = 0; i < limit; i++) {
     fkeys.push({
       "id": i,
-      "context": true,
+      "context": null,
       "type": null,
       "label": null,
       "value": null,
@@ -41,13 +41,12 @@ function generateFunctionKeys(limit: number) {
           <span>Context</span>
           <span>Type</span>
           <span>
-            <select
+            <input
+              type="text"
+              placeholder="context"
               name={`fkey${item.id}Context`}
               id={`fkey${item.id}Context`}
-            >
-              <option value="active">active</option>
-              <option value="inactive">inactive</option>
-            </select>
+            />
           </span>
 
           <span>
